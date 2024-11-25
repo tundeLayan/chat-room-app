@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 
 import { useChatStore } from '@/app/_lib/store';
+import { trpc } from '@/app/_lib/trpc/Provider';
 // import { trpc } from '@/lib/trpc';
 
 const LoginForm = () => {

@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Real-Time Chat Room Application Documentation
+
+## Project Overview
+
+A real-time chat application built with Next.js, featuring user authentication, real-time messaging, and persistent chat rooms.
+
+## Tech Stack
+
+-   Next.js (Frontend & Backend)
+-   Prisma (Database ORM)
+-   TypeScript
+-   TailwindCSS
+-   NextAuth.js (Authentication)
+
+## Project Structure
+
+### Root Directory
+
+\```
+├── .env # Environment variables
+├── .eslintrc.json # ESLint configuration
+├── next.config.mjs # Next.js configuration
+├── postcss.config.mjs # PostCSS configuration
+├── tailwind.config.ts # Tailwind CSS configuration
+├── tsconfig.json # TypeScript configuration
+└── yarn.lock # Yarn dependencies lock file
+\```
+
+### Application Structure
+
+\```
+/app
+├── \_lib # Core library functions
+│ └── trpc # tRPC configuration
+│ ├── client.ts
+│ ├── Provider.tsx
+│ └── store-types.ts
+├── api # API routes
+│ └── auth
+│ └── [...nextauth] # NextAuth.js configuration
+├── (auth) # Authentication related pages
+│ └── Login
+│ ├── components
+│ │ └── LoginForm.tsx
+│ └── page.tsx
+└── chat # Chat functionality
+└── page.tsx # Main chat interface
+\```
+
+### Server-side Components
+
+\```
+/server
+├── routers # API route handlers
+│ ├── auth.ts # Authentication routes
+│ ├── chatRoom.ts # Chat room management
+│ ├── message.ts # Message handling
+│ └── user.ts # User management
+├── context.ts # Server context
+└── index.ts # Main server configuration
+\```
+
+## Key Features
+
+### Authentication
+
+-   User authentication handled through NextAuth.js
+-   Secure login/logout functionality
+-   Protected routes for authenticated users only
+
+### Real-time Chat
+
+-   Real-time message updates
+-   Chat room creation and management
+-   Persistent message history
+-   User presence indicators
+
+### Data Management
+
+-   Prisma ORM for database operations
+-   Type-safe database queries
+-   Efficient data caching and updates
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+   \```bash
+   yarn install
+   \```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Set up environment variables:
+   Create a `.env` file with the following:
+   \```
+   DATABASE_URL="your-database-url"
+   NEXTAUTH_SECRET="your-secret"
+   NEXTAUTH_URL="http://localhost:3000"
+   \```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Initialize database:
+   \```bash
+   npx prisma generate
+   npx prisma db push
+   \```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Run development server:
+   \```bash
+   yarn dev
+   \```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Development Guidelines
 
-## Learn More
+### File Naming Conventions
 
-To learn more about Next.js, take a look at the following resources:
+-   React components: PascalCase (e.g., `LoginForm.tsx`)
+-   Utility files: camelCase (e.g., `auth.ts`)
+-   Pages: `page.tsx`
+-   Layout files: `layout.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Code Organization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-   Keep components modular and reusable
+-   Place shared utilities in `_lib` directory
+-   Group related features in feature directories
+-   Use TypeScript for type safety
 
-## Deploy on Vercel
+### Authentication
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   All authentication logic is centralized in the `(auth)` directory
+-   Protected routes should use middleware for auth checks
+-   User sessions are managed through NextAuth.js
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### API Routes
+
+-   API routes are organized under the `api` directory
+-   Use tRPC for type-safe API calls
+-   Implement proper error handling and validation
+
+## Deployment
+
+The application can be deployed to any platform that supports Next.js applications. Recommended platforms:
+
+-   Vercel
+-   Netlify
+-   Railway
+
+Remember to:
+
+-   Set up environment variables in your deployment platform
+-   Configure database connection strings
+-   Set up proper CORS settings if needed
+-   Enable WebSocket connections for real-time features
+
+## Security Considerations
+
+-   All sensitive data should be stored in environment variables
+-   Implement rate limiting for API routes
+-   Sanitize user input
+-   Use HTTPS in production
+-   Keep dependencies updated

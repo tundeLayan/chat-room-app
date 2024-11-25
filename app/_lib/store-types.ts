@@ -1,7 +1,15 @@
 export interface User {
     id: string;
     username: string;
+    createdAt: Date;
 }
+
+export type AuthState = {
+    user: User | null;
+    isAuthenticated: boolean;
+    login: (username: string) => Promise<void>;
+    logout: () => void;
+};
 
 export interface ChatRoom {
     id: string;
