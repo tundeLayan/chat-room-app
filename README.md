@@ -16,7 +16,7 @@ A real-time chat application built with Next.js, featuring user authentication, 
 
 ### Root Directory
 
-\```
+```
 ├── .env # Environment variables
 ├── .eslintrc.json # ESLint configuration
 ├── next.config.mjs # Next.js configuration
@@ -24,11 +24,11 @@ A real-time chat application built with Next.js, featuring user authentication, 
 ├── tailwind.config.ts # Tailwind CSS configuration
 ├── tsconfig.json # TypeScript configuration
 └── yarn.lock # Yarn dependencies lock file
-\```
+```
 
 ### Application Structure
 
-\```
+````
 /app
 ├── \_lib # Core library functions
 │ └── trpc # tRPC configuration
@@ -45,11 +45,11 @@ A real-time chat application built with Next.js, featuring user authentication, 
 │ └── page.tsx
 └── chat # Chat functionality
 └── page.tsx # Main chat interface
-\```
+```
 
 ### Server-side Components
 
-\```
+```
 /server
 ├── routers # API route handlers
 │ ├── auth.ts # Authentication routes
@@ -58,7 +58,7 @@ A real-time chat application built with Next.js, featuring user authentication, 
 │ └── user.ts # User management
 ├── context.ts # Server context
 └── index.ts # Main server configuration
-\```
+```
 
 ## Key Features
 
@@ -84,28 +84,28 @@ A real-time chat application built with Next.js, featuring user authentication, 
 ## Getting Started
 
 1. Install dependencies:
-   \```bash
+   ```bash
    yarn install
-   \```
+   ```
 
 2. Set up environment variables:
    Create a `.env` file with the following:
-   \```
+   ```
    DATABASE_URL="your-database-url"
    NEXTAUTH_SECRET="your-secret"
    NEXTAUTH_URL="http://localhost:3000"
-   \```
+   ```
 
 3. Initialize database:
-   \```bash
+   ```bash
    npx prisma generate
    npx prisma db push
-   \```
+   ```
 
 4. Run development server:
-   \```bash
+   ```bash
    yarn dev
-   \```
+   ```
 
 ## Development Guidelines
 
@@ -157,3 +157,4 @@ Remember to:
 -   Sanitize user input
 -   Use HTTPS in production
 -   Keep dependencies updated
+````
