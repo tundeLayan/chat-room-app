@@ -28,7 +28,7 @@ A real-time chat application built with Next.js, featuring user authentication, 
 
 ### Application Structure
 
-````
+```
 /app
 ├── \_lib # Core library functions
 │ └── trpc # tRPC configuration
@@ -84,28 +84,31 @@ A real-time chat application built with Next.js, featuring user authentication, 
 ## Getting Started
 
 1. Install dependencies:
-   ```bash
-   yarn install
-   ```
+
+    ```bash
+    yarn install
+    ```
 
 2. Set up environment variables:
    Create a `.env` file with the following:
-   ```
-   DATABASE_URL="your-database-url"
-   NEXTAUTH_SECRET="your-secret"
-   NEXTAUTH_URL="http://localhost:3000"
-   ```
+
+    ```
+    DATABASE_URL="your-database-url"
+    NEXTAUTH_SECRET="your-secret"
+    NEXTAUTH_URL="http://localhost:3000"
+    ```
 
 3. Initialize database:
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
+
+    ```bash
+    npx prisma generate
+    npx prisma db push
+    ```
 
 4. Run development server:
-   ```bash
-   yarn dev
-   ```
+    ```bash
+    yarn dev
+    ```
 
 ## Development Guidelines
 
@@ -157,4 +160,7 @@ Remember to:
 -   Sanitize user input
 -   Use HTTPS in production
 -   Keep dependencies updated
-````
+
+```
+
+```
